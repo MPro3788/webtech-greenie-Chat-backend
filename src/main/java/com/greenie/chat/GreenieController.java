@@ -1,35 +1,36 @@
 package com.greenie.chat;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 @CrossOrigin(origins = "*")
 @RestController
 public class GreenieController {
+
+    private final GreenieRepository greenieRepository;
+
+    public GreenieController(GreenieRepository greenieRepository) {
+        this.greenieRepository = greenieRepository;
+    }
 
     @GetMapping("/")
     public String helloWorld() {
         return "Hello World";
     }
 
-    @GetMapping("/data")
-    public List<Data> getAllData() {
-        return List.of(
-                new Data("Max", "Entwickler", 28),
-                new Data("Sofia", "Designer", 32),
-                new Data("Ali", "Produktmanager", 41)
-        );
+    @GetMapping("/data/{id}")
+    public List<Greenie> getAllData() {
+        return StreamSupport.stream(greenieRepository.findAll().spliterator(), false).toList();
     }
-
-    public record Data(String user, String beruf, int alter) {}
+    /*public GreenieController getData(@PathVariable String id) {
+        Long thingId = Long.parseLong(id);
+        return greenieRepository.get(thingId);
+    }*/                                         //Testphrase
 
     @PostMapping("/data")
-    public Data createData(@RequestBody Data data) {
-        return new Data(data.user(), data.beruf(), data.alter());
+    public Greenie createData(@RequestBody Greenie greenie) {
+        return greenieRepository.save(greenie);
     }
 }
