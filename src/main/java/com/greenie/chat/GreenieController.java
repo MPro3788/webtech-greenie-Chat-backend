@@ -1,6 +1,11 @@
 package com.greenie.chat;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.StreamSupport;
@@ -20,14 +25,16 @@ public class GreenieController {
         return "Hello World";
     }
 
-    @GetMapping("/data/{id}")
+    @GetMapping("/data")
     public List<Greenie> getAllData() {
         return StreamSupport.stream(greenieRepository.findAll().spliterator(), false).toList();
     }
-    /*public GreenieController getData(@PathVariable String id) {
-        Long thingId = Long.parseLong(id);
-        return greenieRepository.get(thingId);
-    }*/                                         //Testphrase
+
+    @GetMapping("/data/{id}")
+    public Greenie getDataById(@PathVariable Long id) {
+        return greenieRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Datensatz nicht gefunden: " + id));
+    }
 
     @PostMapping("/data")
     public Greenie createData(@RequestBody Greenie greenie) {
