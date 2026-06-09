@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.greenie.chat.ChatApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-06-09T15:54:31.955Z" hostname="MacBook-Air-von-Murad.local" time="1.862">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.greenie.chat.ChatApplicationTests" time="0.238"/>
+  <system-out><![CDATA[17:54:32.014 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.greenie.chat.ChatApplicationTests]: ChatApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:54:32.068 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.greenie.chat.ChatApplication for test class com.greenie.chat.ChatApplicationTests
+17:54:32.097 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.greenie.chat.ChatApplicationTests]: ChatApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:54:32.098 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.greenie.chat.ChatApplication for test class com.greenie.chat.ChatApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.5)
+
+2026-06-09T17:54:32.247+02:00  INFO 13900 --- [    Test worker] com.greenie.chat.ChatApplicationTests    : Starting ChatApplicationTests using Java 25.0.1 with PID 13900 (started by mpro in /Users/mpro/Desktop/webtech-greenie-Chat-backend)
+2026-06-09T17:54:32.248+02:00  INFO 13900 --- [    Test worker] com.greenie.chat.ChatApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-06-09T17:54:32.487+02:00  INFO 13900 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-09T17:54:32.505+02:00  INFO 13900 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 1 JPA repository interface.
+2026-06-09T17:54:32.638+02:00  INFO 13900 --- [    Test worker] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-09T17:54:32.663+02:00  INFO 13900 --- [    Test worker] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.7.Final
+2026-06-09T17:54:32.817+02:00  INFO 13900 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-09T17:54:32.828+02:00  INFO 13900 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-09T17:54:32.890+02:00  INFO 13900 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-06-09T17:54:32.891+02:00  INFO 13900 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-09T17:54:32.916+02:00  INFO 13900 --- [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:testdb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TESTDB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-09T17:54:33.279+02:00  INFO 13900 --- [    Test worker] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-09T17:54:33.294+02:00  INFO 13900 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-09T17:54:33.333+02:00  INFO 13900 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-09T17:54:33.408+02:00  WARN 13900 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-09T17:54:33.575+02:00  INFO 13900 --- [    Test worker] com.greenie.chat.ChatApplicationTests    : Started ChatApplicationTests in 1.447 seconds (process running for 1.977)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/private/var/folders/5f/tgh2n1nj42z__xvmj7crp0180000gn/T/cursor-sandbox-cache/443de68fc9737807c0b8633cffcac448/gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.8/f09415827a71be7ed621c7bd02550678f28bc81c/byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
