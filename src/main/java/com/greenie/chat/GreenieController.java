@@ -38,6 +38,22 @@ public class GreenieController {
 
     @PostMapping("/data")
     public Greenie createData(@RequestBody Greenie greenie) {
+        if (greenie.getId() == null) {
+            greenie.setId(nextId());
+        }
         return greenieRepository.save(greenie);
+    }
+
+    @PostMapping("/data/{id}")
+    public Greenie createDataById(@PathVariable Long id, @RequestBody Greenie greenie) {
+        greenie.setId(id);
+        return greenieRepository.save(greenie);
+    }
+
+    private Long nextId() {
+        return StreamSupport.stream(greenieRepository.findAll().spliterator(), false)
+                .map(Greenie::getId)
+                .max(Long::compareTo)
+                .orElse(0L) + 1;
     }
 }
