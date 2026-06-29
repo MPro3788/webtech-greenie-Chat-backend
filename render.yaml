@@ -1,6 +1,6 @@
 databases:
   - name: webtech-Greenie-Chat-Data
-    databaseName: webtech_greenie_chat_data
+    databaseName: webtech_greenie_chat_data_4895
     plan: free
     region: frankfurt
 
