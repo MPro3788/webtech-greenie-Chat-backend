@@ -35,7 +35,10 @@ public class RenderDatabaseConfiguration {
 
         String host = uri.getHost();
         int port = uri.getPort() > 0 ? uri.getPort() : 5432;
-        if (host != null && host.startsWith("dpg-") && !host.contains(".")) {
+
+        // Auf Render: interne URL (dpg-xxx-a) unverändert lassen.
+        // Lokal: interne URL in externe URL umwandeln.
+        if (host != null && host.startsWith("dpg-") && !host.contains(".") && !isRunningOnRender()) {
             host = host + "." + region + "-postgres.render.com";
             port = 5432;
         }
@@ -43,7 +46,7 @@ public class RenderDatabaseConfiguration {
         String jdbcUrl = "jdbc:postgresql://" + host + ":" + port + uri.getPath();
         if (uri.getQuery() != null) {
             jdbcUrl += "?" + uri.getQuery();
-        } else if (host != null && host.contains("render.com")) {
+        } else if (host != null && host.contains(".render.com")) {
             jdbcUrl += "?sslmode=require";
         }
 
@@ -53,6 +56,10 @@ public class RenderDatabaseConfiguration {
                 .username(username)
                 .password(password)
                 .build();
+    }
+
+    private static boolean isRunningOnRender() {
+        return System.getenv("RENDER") != null || System.getenv("RENDER_SERVICE_ID") != null;
     }
 
     private static String urlDecode(String value) {
