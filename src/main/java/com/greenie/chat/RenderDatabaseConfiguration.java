@@ -36,9 +36,10 @@ public class RenderDatabaseConfiguration {
         String host = uri.getHost();
         int port = uri.getPort() > 0 ? uri.getPort() : 5432;
 
-        // Auf Render: interne URL (dpg-xxx-a) unverändert lassen.
-        // Lokal: interne URL in externe URL umwandeln.
-        if (host != null && host.startsWith("dpg-") && !host.contains(".") && !isRunningOnRender()) {
+        // Immer die externe URL verwenden (funktioniert überall, auch auf Render).
+        // Interne dpg-xxx-a Hostnamen brauchen Render Private Networking,
+        // das auf dem Free-Tier nicht verfügbar ist.
+        if (host != null && host.startsWith("dpg-") && !host.contains(".")) {
             host = host + "." + region + "-postgres.render.com";
             port = 5432;
         }
