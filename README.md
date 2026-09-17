@@ -13,4 +13,4 @@ der Nutzer/in sich entscheiden kann, welche personenbezogen Daten weiterverarbei
 Außerdem beinhaltet der Chat Tool auch einen Editor, 
 mit dem man hochgeladene Dateien und Quellcodes bearbeitet werden kann.
 
-Gruppenmitglieder: Marko Prodanovic
+
